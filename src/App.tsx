@@ -3,6 +3,10 @@ import "./App.css";
 import { TodoDispatchContext, TodoStateContext } from "./TodoContext";
 import { TodoList } from "./TodoList";
 import { AddTodoButton } from "./AddTodoButton";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import { TodoListRedux } from "./TodoListRedux";
+import { AddTodoButtonRedux } from "./AddTodoButtonRedux";
 
 type Todo = {
   id: number;
@@ -53,6 +57,10 @@ function App() {
           <AddTodoButton />
         </TodoDispatchContext.Provider>
       </TodoStateContext.Provider>
+      <Provider store={store}>
+        <TodoListRedux />
+        <AddTodoButtonRedux />
+      </Provider>
     </>
   );
 }
